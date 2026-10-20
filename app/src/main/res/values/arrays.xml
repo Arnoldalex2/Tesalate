@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Name MUST match the manifest activity name -->
+    <string-array name="tesalate">
+        <item>mapping_source</item>
+        <item>tesalate_replacement</item>
+    </string-array>
+
+    <!-- These are candidate drawable keys. Confirm OxygenOS 16 resource names by inspecting device APKs. -->
+    <string-array name="mapping_source">
+        <item>android:ic_wifi_signal_0</item>
+        <item>android:ic_wifi_signal_1</item>
+        <item>android:ic_wifi_signal_2</item>
+        <item>android:ic_wifi_signal_3</item>
+        <item>android:ic_wifi_signal_4</item>
+        <item>stat_signal_wifi_signal_0</item>
+        <item>stat_signal_wifi_signal_1</item>
+        <item>stat_signal_wifi_signal_2</item>
+        <item>stat_signal_wifi_signal_3</item>
+        <item>stat_signal_wifi_signal_4</item>
+        <item>stat_signal_signal_lte_single_0</item>
+        <item>stat_signal_signal_lte_single_1</item>
+        <item>stat_signal_signal_lte_single_2</item>
+        <item>stat_signal_signal_lte_single_3</item>
+        <item>stat_signal_signal_lte_single_4</item>
+        <item>stat_sys_battery</item>
+        <item>stat_sys_battery_charge</item>
+        <item>stat_sys_data_bluetooth</item>
+        <item>stat_sys_airplane_mode</item>
+    </string-array>
+
+    <string-array name="tesalate_replacement">
+        <item>tesalate_wifi_0</item>
+        <item>tesalate_wifi_1</item>
+        <item>tesalate_wifi_2</item>
+        <item>tesalate_wifi_3</item>
+        <item>tesalate_wifi_4</item>
+        <item>tesalate_wifi_0</item>
+        <item>tesalate_wifi_1</item>
+        <item>tesalate_wifi_2</item>
+        <item>tesalate_wifi_3</item>
+        <item>tesalate_wifi_4</item>
+        <item>tesalate_signal_0</item>
+        <item>tesalate_signal_1</item>
+        <item>tesalate_signal_2</item>
+        <item>tesalate_signal_3</item>
+        <item>tesalate_signal_4</item>
+        <item>tesalate_battery</item>
+        <item>tesalate_battery_charging</item>
+        <item>tesalate_bluetooth</item>
+        <item>tesalate_airplane</item>
+    </string-array>
+</resources>

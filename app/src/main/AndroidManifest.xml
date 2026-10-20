@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application
+        android:label="Tesalate"
+        android:hasCode="false"
+        android:supportsRtl="true">
+        <meta-data android:name="packauthor" android:value="aa" />
+        <!-- Intent category and activity name follow official OCIconPackTemplate -->
+        <activity
+            android:name="tesalate"
+            android:label="Tesalate"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="it.dhd.oxygencustomizer.iconpack" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

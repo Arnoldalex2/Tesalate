@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:maxLevel="500" android:drawable="@drawable/tesalate_battery_charging_0" />
+    <item android:maxLevel="1500" android:drawable="@drawable/tesalate_battery_charging_10" />
+    <item android:maxLevel="3000" android:drawable="@drawable/tesalate_battery_charging_25" />
+    <item android:maxLevel="5500" android:drawable="@drawable/tesalate_battery_charging_50" />
+    <item android:maxLevel="8000" android:drawable="@drawable/tesalate_battery_charging_75" />
+    <item android:maxLevel="9500" android:drawable="@drawable/tesalate_battery_charging_90" />
+    <item android:maxLevel="10000" android:drawable="@drawable/tesalate_battery_charging_100" />
+</level-list>
