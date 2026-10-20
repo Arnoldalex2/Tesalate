@@ -1,56 +1,31 @@
-# Tesalate — Oxygen Customizer system icon pack starter
+# Tesalate v0.3 — Electric Facet Expanded
 
-**Pack:** Tesalate  
-**Author:** aa  
-**Package ID:** `com.aa.tesalate`  
-**Design:** mixed bold filled and outline details, lightly futuristic, electric cyan inset and subtle dark shadow/ridge.
+Pack by **aa**, built for **Oxygen Customizer** on OnePlus/OxygenOS 16.
 
-## Important: starter and verification scope
+Based on Tesalate v0.2, with the **Bluetooth XML preserved byte-for-byte**.
 
-This is a **source project**, not an already-compiled APK. Its XML structure follows the Oxygen Customizer icon-pack discovery protocol and the `DHD2280/OCIconPackTemplate` reference. It has **not been compiled on a real Android toolchain or tested on the user's OxygenOS 16 device**.
+## What's new
 
-- Built-in Oxygen Customizer icon styles use a different overlay mechanism from the Mods > Icon packs screen.
-- This starter registers the `it.dhd.oxygencustomizer.iconpack` intent and two string-array maps required for Mods > Icon packs.
-- System resource names are device/build specific. **Do not assume all mappings take effect.** The names `android:ic_wifi_signal_0` (from official template) and `stat_sys_data_bluetooth`, `stat_sys_airplane_mode`, `stat_signal_wifi_signal_3`, `stat_signal_signal_lte_single_3` (referenced in Oxygen Customizer source) are reference candidates, not proof those names are drawable IDs used on this particular device.
-- **Battery:** modern OxygenOS may draw battery with a custom status bar view instead of using one drawable. Even if `stat_sys_battery` maps, the status bar battery icon may not change. Dynamic battery charge/level-list support must be verified on device.
-- The included Wi-Fi, signal, and battery vectors are an initial style/test set. Some are deliberately conservative.
-- The source XML is not system-image modification and the ZIP itself does not need root. Oxygen Customizer requires its own root/LSPosed configuration.
+- 116 SystemUI drawable names matched in the user-supplied `System_UI_(16.99.12).apk`.
+- 85 Settings drawable names matched in `Settings_(16.0.0).apk`.
+- Two selectable packs in **one APK**: **Tesalate — SystemUI**, and **Tesalate — Settings**.
+- Expanded signal, Wi-Fi, no-internet Wi-Fi, alarm, VPN, NFC, location, hotspot, sound, privacy, settings, and other icons.
+- Added dimensional Electric Facet vectors with electric blue edges, dark shadows, and icy highlights.
+- Saved detailed original-to-replacement matches in `RESOURCE_AUDIT.txt`.
+- Left animated Quick Settings tiles largely alone to avoid breaking state transitions.
 
-## Files
+## Build
 
-- `app/build.gradle.kts` — package `com.aa.tesalate`, API 35 configuration.
-- `app/src/main/AndroidManifest.xml` — APK name/author + Intent that allows Oxygen Customizer to discover this installed pack.
-- `app/src/main/res/values/arrays.xml` — original drawable resource names paired with Tesalate replacements.
-- `app/src/main/res/drawable/` — Wi-Fi levels 0–4, cellular signal levels 0–4, battery level lists including charging states, Bluetooth, airplane mode.
-- `.github/workflows/build-apk.yml` — builds with GitHub Actions.
+Upload all project files and directories (including `.github`) to the root of [your Tesalate repository](https://github.com/Arnoldalex2/Tesalate) on GitHub. Note: **a ZIP itself is not a working GitHub project upload**—extract and commit the contents. Do not mix old and new mappings.
 
-## Build using GitHub Actions
+GitHub Actions → `Build Tesalate v0.3 APK` → Run workflow (or push to `main`). Download the `Tesalate-APK` artifact. Install it over the previous version if the same signing key is used. Because GitHub-hosted debug keys can change between runners, you may need to uninstall the older Tesalate application APK before installing this new test APK (do not uninstall Oxygen Customizer). Then open Oxygen Customizer → Mods → Icon packs and enable one of the Tesalate packs.
 
-1. Create a GitHub repository (e.g. `Tesalate`) and upload/extract this project's contents **at the repository root**. Keep `.github/workflows/build-apk.yml` (the hidden `.github` directory) intact.
-2. In GitHub open **Actions > Build Tesalate APK > Run workflow** (or push to `main`).
-3. When complete, open that workflow run and download the **Tesalate-APK** artifact.
-4. Extract the artifact ZIP. Install `app-debug.apk` on the OnePlus 13.
-5. Open Oxygen Customizer > **Mods > Icon packs**. Look for `Tesalate`. Enable it and check actual effects.
-6. If the app shows but icons do not change, get **exact resource names** from your phone's real `SystemUI.apk` and framework resources, then edit the left side of `arrays.xml` and rebuild.
+## Important limits
 
-The debug APK is signed by the build's debug key. If reinstalling from a new GitHub Actions runner causes a signature mismatch, uninstall the old Tesalate app first (not Oxygen Customizer), then install the new debug APK. For stable upgrades/signatures eventually add a proper private release-signing workflow.
+- **Not compiled or tested on a phone.** XML and mapping names are checked, but we cannot guarantee every icon will show or that Android resource compilation will succeed until the workflow runs.
+- **Battery is experimental**: Android/OxygenOS 16 draws several battery modes with composite/progress components; a `stat_battery` drawable mapping might not affect your actual displayed battery percentage/icon. Your screenshot showed a customized battery already. The `framework-res.apk` (actual Android framework file, not the uploaded small overlay) would allow further investigation.
+- Some Wi-Fi and cellular indicators are stateful composite assets. Versions badges (Wi-Fi 6/7; LTE/5G) are left unmodified rather than replaced with misleading plain glyphs.
+- **Don't enable all replacements at once initially** on a rooted device. Test Status Pack, confirm stable, then optionally Settings pack. An abnormal SystemUI crash can be recovered by disabling Oxygen Customizer's Xposed/LSPosed module and rebooting.
+- Original resource file existence isn't sufficient to ensure an Xposed `Resources.getDrawable` hook is used at every UI location.
 
-## Validate resource names with ADB
-
-```sh
-adb devices
-adb shell pm path com.android.systemui
-adb shell pm path android
-adb shell pm path com.android.settings
-```
-
-Run `adb pull <actual-path> <local-filename>` using each relevant result. Do not blindly guess file paths. Inspect with `aapt2 dump resources`, `apktool` or Android Studio's APK Analyzer to identify drawable resource names and state dependencies. Do not overwrite your installed SystemUI APK.
-
-## Design note
-
-SystemUI sometimes automatically tints vector icons. Shadows, accent colors and dual-tone shapes may therefore become monochrome; test on phone before investing in more gradients/shading.
-
-## Reference
-
-- Official template: https://github.com/DHD2280/OCIconPackTemplate
-- Oxygen Customizer: https://github.com/DHD2280/Oxygen-Customizer
+Author: aa — Tesalate v0.3
